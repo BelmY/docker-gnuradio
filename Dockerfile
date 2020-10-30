@@ -37,3 +37,26 @@ RUN apt-get -q update \
 	libsoapysdr-dev \
 	libuhd-dev \
 	git
+
+# Install GNU Radio packages
+RUN apt-get -qy install \
+	gr-air-modes \
+	gr-dab \
+	gr-fcdproplus \
+	gr-fosphor \
+	gr-gsm \
+	gr-hpsdr \
+	gr-iio \
+	gr-iqbal \
+	gr-limesdr \
+	gr-osmosdr \
+	gr-radar \
+	gr-rds \
+	airspy \
+	bladerf \
+	libiio-utils \
+	limesuite \
+	rtl-sdr \
+	soapysdr-tools \
+	uhd-host \
+	satnogs-flowgraphs
