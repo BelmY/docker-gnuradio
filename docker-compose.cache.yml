@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  cache_image:
+    image: '$CACHE_IMAGE'
+  cachet:
+    build:
+      cache_from:
+        - '$CACHE_IMAGE'

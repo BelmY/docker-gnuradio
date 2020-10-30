@@ -18,6 +18,7 @@
 FROM debian:buster
 MAINTAINER Vasilis Tsiligiannis <acinonyx@openwrt.gr>
 
+ARG GNURADIO_VERSION
 ARG SATNOGS_APT_REPOSITORY="deb http://download.opensuse.org/repositories/home:/librespace:/satnogs/Debian_10/ /"
 ARG SATNOGS_APT_KEY_URL="https://download.opensuse.org/repositories/home:librespace:satnogs/Debian_10/Release.key"
 
@@ -27,10 +28,11 @@ RUN apt-get -q update \
 	&& echo "${SATNOGS_APT_REPOSITORY}" > /etc/apt/sources.list.d/satnogs.list \
 	&& apt-key adv --fetch-keys "${SATNOGS_APT_KEY_URL}"
 
-# Install pacakges
+# Install development packages
 RUN apt-get -qy install \
 	build-essential \
 	cmake \
-	gnuradio-dev \
+	gnuradio-dev${GNURADIO_VERSION:+=${GNURADIO_VERSION}-*} \
 	libsoapysdr-dev \
+	libuhd-dev \
 	git
