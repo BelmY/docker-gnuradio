@@ -29,7 +29,8 @@ RUN apt-get -q update \
 	&& apt-key adv --fetch-keys "${SATNOGS_APT_KEY_URL}"
 
 # Install development packages
-RUN apt-get -qy install \
+RUN apt-get -q update \
+	&& apt-get -qy install \
 	build-essential \
 	cmake \
 	gnuradio-dev${GNURADIO_VERSION:+=${GNURADIO_VERSION}-*} \
